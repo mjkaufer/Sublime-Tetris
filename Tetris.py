@@ -7,15 +7,15 @@ import copy
 class AnimateCommand(sublime_plugin.TextCommand):
     lastGrid = None
 
-    rows = 40
-    cols = 40
+    rows = 20 + 2#2 represents the borders
+    cols = 10 + 2
 
     def run(self, edit):
 
         totalRegion = sublime.Region(0, self.view.size())
         if not self.lastGrid:
             self.lastGrid = []
-            lines = self.view.lines(totalRegion)
+
             for r in range(self.rows):
 
                 self.lastGrid.append([])
